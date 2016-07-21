@@ -91,6 +91,10 @@ class BBP_Attach_Media_Helper {
 
 	}
 
+	public function enable_upload_filters() {
+		return true;
+	}
+
 
     public function list() {
 
@@ -104,7 +108,7 @@ class BBP_Attach_Media_Helper {
 	 */
     public function load_js() {
 
-    	if ( is_user_logged_in() && bbp_is_single_topic() && !current_user_can( 'publish_replies' ) ) {
+    	if ( is_user_logged_in() && bbp_is_single_topic() && current_user_can( 'publish_replies' ) ) {
     		wp_enqueue_media();
     		wp_enqueue_script( 'bbp-attach-media-js', plugin_dir_url( __FILE__ ) .'assets/bbp-attach-media.js' , array( 'jquery'));
 	    }
