@@ -33,7 +33,7 @@ class BBP_Attach_Media_Helper {
 	    add_action( 'bbp_theme_before_reply_form_submit_wrapper', 'bbp_add_media_attach_button' );
 
 	    //add the media list to the posts
-	    add_action( 'bbp_theme_after_reply_content', array( $this, 'list' ) );
+	    add_action( 'bbp_theme_after_reply_content', array( $this, 'list_attachments' ) );
 
 
 
@@ -96,7 +96,7 @@ class BBP_Attach_Media_Helper {
 	}
 
 
-    public function list() {
+    public function list_attachments() {
 
 	    $reply_id = bbp_get_reply_id();
 	    bbp_list_attached_media( $reply_id );
